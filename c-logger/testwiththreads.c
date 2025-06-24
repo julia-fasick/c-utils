@@ -4,9 +4,7 @@
 #include <time.h>
 int main(int argc, char* argv[])
     {
-        if (log_init(6, "./log.txt", 0) != 0) {
-            printf("%s\n", "From test.c: initialization error!");
-        }
+        log_init(6, "./log.txt", 1);
         clock_t begin = clock();
         for(int i = 0; i < 50000; i++) {
             fatal("from fatal %s%d\n", "blah blah ", i);
@@ -18,8 +16,6 @@ int main(int argc, char* argv[])
         }
         clock_t end = clock();
         double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-        if (log_exit() != 0) {
-            printf("%s\n", "From test.c: exit error!");
-        }
+        log_exit();
         printf("Time Spent With Threading: %.6g seconds\n", time_spent);
     }
