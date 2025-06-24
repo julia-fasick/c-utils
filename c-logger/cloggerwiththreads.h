@@ -98,8 +98,8 @@ int log_init(int log_level, char* log_path, int delete)
     }
 
     // check if log already exists at path
-    // if DELETE is 0, we want to open with flag "w" as that will create if OR open and truncate to length 0, dependent on if it exists
-    if (DELETE == 0)
+    // if DELETE is 1, we want to open with flag "w" as that will create if OR open and truncate to length 0, dependent on if it exists
+    if (DELETE == 1)
     {
         LOG = fopen(log_path, "w");
     } else {
